@@ -177,7 +177,7 @@ def update_archive(file_list):
                 'std': row["std"],
                 'kurtosis': row["kurtosis"]
             })
-            data_list.update({ind : metadata})
+            data_list.update({index : metadata})
 
     return data_list
 
