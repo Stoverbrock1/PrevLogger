@@ -160,7 +160,7 @@ def update_archive(file_list):
         else:
             metadata['hostname'] = hostnames[2]
 
-        df = pd.read_csv(data, columns=['timestamp',
+        df = pd.read_csv(data, usecols=['timestamp',
                                 'average',
                                 'median',
                                 'max',
