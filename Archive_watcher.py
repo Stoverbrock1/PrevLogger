@@ -180,8 +180,8 @@ def update_archive(file_list):
                 'std': row["std"],
                 'kurtosis': row["kurtosis"]
             })
-            print(index)
-            print(metadata)
+            #print(index)
+            #print(metadata)
             #data_list.update({index : metadata})
             data_list[index] = metadata
     #print(data_list)
