@@ -159,7 +159,8 @@ def update_archive(file_list):
             metadata['hostname'] = hostnames[1]
         else:
             metadata['hostname'] = hostnames[2]
-
+        #Determine center freq.
+        metadata['frequency'] = int(data.split("-")[1].split(".")[0])
         df = pd.read_csv(data, usecols=['timestamp',
                                 'average',
                                 'median',
@@ -170,7 +171,7 @@ def update_archive(file_list):
         #print(df)
         for index, row in df.iterrows():
             print(index)
-            print(row)
+            #print(row)
             metadata.update({
                 'created_at': row['timestamp'],
                 'average': row['average'],
@@ -179,6 +180,7 @@ def update_archive(file_list):
                 'std': row["std"],
                 'kurtosis': row["kurtosis"]
             })
+            print(metadata)
             data_list.update({index : metadata})
     print(data_list)
     return data_list
