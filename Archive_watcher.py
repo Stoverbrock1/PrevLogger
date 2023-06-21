@@ -167,7 +167,7 @@ def update_archive(file_list):
                                 'std',
                                 'kurtosis'])
         df = df.sort_values(by='timestamp')
-
+        print(df)
         for index, row in df.iterrows():
             metadata.update({
                 'created_at': row['timestamp'],
