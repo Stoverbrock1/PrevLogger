@@ -180,7 +180,7 @@ def update_archive(file_list):
                 'kurtosis': row["kurtosis"]
             })
             data_list.update({index : metadata})
-    #print(data_list)
+    print(data_list)
     return data_list
 
 if __name__ == '__main__':
