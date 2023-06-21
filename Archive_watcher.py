@@ -182,7 +182,8 @@ def update_archive(file_list):
             })
             print(index)
             print(metadata)
-            data_list.update({index : metadata})
+            #data_list.update({index : metadata})
+            data_list[index] = metadata
     #print(data_list)
     return data_list
 
