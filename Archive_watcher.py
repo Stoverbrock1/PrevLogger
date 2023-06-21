@@ -169,6 +169,8 @@ def update_archive(file_list):
         df = df.sort_values(by='timestamp')
         #print(df)
         for index, row in df.iterrows():
+            print(index)
+            print(row)
             metadata.update({
                 'created_at': row['timestamp'],
                 'average': row['average'],
@@ -178,7 +180,7 @@ def update_archive(file_list):
                 'kurtosis': row["kurtosis"]
             })
             data_list.update({index : metadata})
-    print(data_list)
+    #print(data_list)
     return data_list
 
 if __name__ == '__main__':
