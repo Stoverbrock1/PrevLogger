@@ -163,6 +163,7 @@ def update_archive(file_list):
         #metadata['frequency'] = int(data.split("-")[1].split(".")[0])
         #metadata.update({'frequency' : int(data.split("-")[1].split(".")[0])})
         print(int(data.split("-")[1].split(".")[0]))
+        freq = int(data.split("-")[1].split(".")[0])
         df = pd.read_csv(data, usecols=['timestamp',
                                 'average',
                                 'median',
@@ -181,7 +182,7 @@ def update_archive(file_list):
                 'max': row["max"],
                 'std': row["std"],
                 'kurtosis': row["kurtosis"],
-                'frequency' : int(data.split("-")[1].split(".")[0])
+                'frequency' : freq)
             })
             #print(index)
             #print(metadata)
