@@ -154,7 +154,9 @@ def update_archive(file_list):
     ]
      ### pattern needs to be changed
 
-    data_list = pd.DataFrame(columns=["index", "ind_data"])
+    data_list = {}
+    dat_list = []
+    ind_list = []
     for data in file_list:
 
         if "roof" in data.lower():
@@ -186,10 +188,15 @@ def update_archive(file_list):
             })
             #print(index)
             #print(metadata)
-            data_list["index"] += [index]
-            data_list["ind_data"] += [metadata]
+            ind_met = metadata
+            ind_list += [index]
+            dat_list += [ind_met]
             #data_list[index] = metadata
+
         print(data_list)
+    data_list['Index'] = ind_list
+    data_list['Data'] = dat_list
+    data_list = pd.DataFrame(data_list)
     return data_list
 
 if __name__ == '__main__':
