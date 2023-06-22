@@ -171,7 +171,8 @@ def update_archive(file_list):
                                 'std',
                                 'kurtosis'])
         df = df.sort_values(by='timestamp')
-        #print(df)
+        df['frequency'] = [freq for x in df['timestamp']]
+        print(df)
         for index, row in df.iterrows():
             #print(index)
             #print(row)
@@ -184,7 +185,7 @@ def update_archive(file_list):
                 'max': row["max"],
                 'std': row["std"],
                 'kurtosis': row["kurtosis"],
-                'frequency' : freq.copy()
+                'frequency' : row['frequency']
             })
             #print(index)
             print(freq)
