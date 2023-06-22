@@ -187,7 +187,7 @@ def update_archive(file_list):
             #print(index)
             #print(metadata)
             ind_met = metadata.copy()
-
+            print(ind_met)
             data_list = data_list + [ind_met]
             #data_list[index] = metadata
 
@@ -195,7 +195,7 @@ def update_archive(file_list):
     #data_list['Index'] = ind_list
     #data_list['Data'] = dat_list
     #data_list = pd.DataFrame(data_list)
-    print(data_list)
+    #print(data_list)
     return data_list
 
 if __name__ == '__main__':
