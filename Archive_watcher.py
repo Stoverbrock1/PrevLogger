@@ -154,9 +154,7 @@ def update_archive(file_list):
     ]
      ### pattern needs to be changed
 
-    data_list = {}
-    dat_list = []
-    ind_list = []
+    data_list = []
     for data in file_list:
 
         if "roof" in data.lower():
