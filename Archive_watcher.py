@@ -59,6 +59,8 @@ def update_db(data_list):
         # execute a statement
 
         for index, row in data_list.iterrows():
+            print(index)
+            print(row)
             cur.execute(select, [row['hostname']])
             print("organizer: select executed")
             response = cur.fetchone()
