@@ -184,7 +184,7 @@ def update_archive(file_list):
                 'max': row["max"],
                 'std': row["std"],
                 'kurtosis': row["kurtosis"],
-                'frequency' : freq
+                'frequency' : freq.copy()
             })
             #print(index)
             print(freq)
