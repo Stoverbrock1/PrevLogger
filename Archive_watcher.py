@@ -58,10 +58,10 @@ def update_db(data_list):
         cur = conn.cursor()
         # execute a statement
 
-        for index, row in data_list.iterrows():
-            print(index)
+        for row in data_list:
+            #print(index)
             print(row)
-            print(data_list)
+            #print(data_list)
             cur.execute(select, [row['hostname']])
             print("organizer: select executed")
             response = cur.fetchone()
@@ -188,15 +188,16 @@ def update_archive(file_list):
             })
             #print(index)
             #print(metadata)
-            ind_met = metadata
-            ind_list += [index]
-            dat_list += [ind_met]
+            ind_met = metadata.copy()
+
+            data_list = data_list + [ind_met]
             #data_list[index] = metadata
 
         #print(data_list)
-    data_list['Index'] = ind_list
-    data_list['Data'] = dat_list
-    data_list = pd.DataFrame(data_list)
+    #data_list['Index'] = ind_list
+    #data_list['Data'] = dat_list
+    #data_list = pd.DataFrame(data_list)
+    print(data_list)
     return data_list
 
 if __name__ == '__main__':
