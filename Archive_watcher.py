@@ -193,7 +193,7 @@ def update_archive(file_list):
             dat_list += [ind_met]
             #data_list[index] = metadata
 
-        print(data_list)
+        #print(data_list)
     data_list['Index'] = ind_list
     data_list['Data'] = dat_list
     data_list = pd.DataFrame(data_list)
