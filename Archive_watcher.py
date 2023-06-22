@@ -57,57 +57,58 @@ def update_db(data_list):
         # create a cursor
         cur = conn.cursor()
         # execute a statement
-        for key in data_list:
-            cur.execute(select, [data_list[key]['hostname']])
+
+        for index, row in data_list.iterrows():
+            cur.execute(select, [row['hostname']])
             print("organizer: select executed")
-            row = cur.fetchone()
-            if row is not None:
-                hardware_id = row[0]
-                print(row[0])
+            response = cur.fetchone()
+            if response is not None:
+                hardware_id = response[0]
+                print(response[0])
             else:
                 cur.close()
                 return
-            cur.execute(commands[0], (data_list[key]['org'],
-                                data_list[key]['frequency'],
-                                data_list[key]['sampling_rate'],
-                                data_list[key]['sampling_rate'],
-                                data_list[key]['gain'],
-                                data_list[key]['length'],
-                                data_list[key]['interval'],
-                                data_list[key]['bit_depth'],
-                                data_list[key]['org'],
-                                data_list[key]['frequency'],
-                                data_list[key]['sampling_rate'],
-                                data_list[key]['sampling_rate'],
-                                data_list[key]['gain'],
-                                data_list[key]['length'],
-                                data_list[key]['interval'],
-                                data_list[key]['bit_depth'],
+            cur.execute(commands[0], (row['org'],
+                                row['frequency'],
+                                row['sampling_rate'],
+                                row['sampling_rate'],
+                                row['gain'],
+                                row['length'],
+                                row['interval'],
+                                row['bit_depth'],
+                                row['org'],
+                                row['frequency'],
+                                row['sampling_rate'],
+                                row['sampling_rate'],
+                                row['gain'],
+                                row['length'],
+                                row['interval'],
+                                row['bit_depth'],
                                 ))
             metadata_id = cur.fetchone()
             print("organizer: command 1 executed")
             cur.execute(commands[1], (hardware_id,
                                 metadata_id,
-                                data_list[key]['created_at'],
-                                data_list[key]['average'],
-                                data_list[key]['max'],
-                                data_list[key]['median'],
-                                data_list[key]['std'],
-                                data_list[key]['kurtosis'],
+                                row['created_at'],
+                                row['average'],
+                                row['max'],
+                                row['median'],
+                                row['std'],
+                                row['kurtosis'],
                                 hardware_id,
                                 metadata_id,
-                                data_list[key]['created_at'],
-                                data_list[key]['average'],
-                                data_list[key]['max'],
-                                data_list[key]['median'],
-                                data_list[key]['std'],
-                                data_list[key]['kurtosis'],))
+                                row['created_at'],
+                                row['average'],
+                                row['max'],
+                                row['median'],
+                                row['std'],
+                                row['kurtosis'],))
             print("organizer: command 2 executed")
-            # close the communication with the PostgreSQL server
-            cur.close()
-            conn.commit()
-            print("Commands executed.")
-            print("Metadata and recording information added to database")
+        # close the communication with the PostgreSQL server
+        cur.close()
+        conn.commit()
+        print("Commands executed.")
+        print("Metadata and recording information added to database")
     except (Exception, psycopg2.DatabaseError) as error:
         print(error)
         return
