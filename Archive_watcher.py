@@ -151,7 +151,7 @@ def update_archive(file_list):
     ]
      ### pattern needs to be changed
 
-    data_list = {}
+    data_list = pd.DataFrame(columns=["index", "ind_data"])
     for data in file_list:
 
         if "roof" in data.lower():
@@ -183,7 +183,8 @@ def update_archive(file_list):
             })
             #print(index)
             #print(metadata)
-            data_list.update({index : metadata})
+            data_list["index"] += [index]
+            data_list["ind_data"] += [metadata]
             #data_list[index] = metadata
         print(data_list)
     return data_list
