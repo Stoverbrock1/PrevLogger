@@ -62,7 +62,7 @@ def update_db(data_list):
             #print(index)
             print(row)
             #print(data_list)
-            cur.execute(select, [row['hostname']])
+            cur.execute(select, row['hostname'])
             print("organizer: select executed")
             response = cur.fetchone()
             if response is not None:
