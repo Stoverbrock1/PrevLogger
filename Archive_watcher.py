@@ -30,7 +30,7 @@ def update_db(data_list):
         """
         INSERT INTO outputs(hardware_id, metadata_id, created_at, average_db, max_db, median_db, std_dev, kurtosis)
             VALUES(%s,%s,%s,%s,%s,%s,%s,%s)
-            ON CONFLICT (created_at) DO UPDATE
+            ON CONFLICT (metadata_id) DO UPDATE
             SET hardware_id=%s, metadata_id=%s, created_at=%s, average_db=%s, max_db=%s, median_db=%s, std_dev=%s, kurtosis=%s;
         """)
 
