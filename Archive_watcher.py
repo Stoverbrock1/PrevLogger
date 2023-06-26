@@ -98,15 +98,7 @@ def update_db(data_list):
                                 row['max'],
                                 row['median'],
                                 row['std'],
-                                row['kurtosis'],
-                                hardware_id,
-                                metadata_id,
-                                row['created_at'],
-                                row['average'],
-                                row['max'],
-                                row['median'],
-                                row['std'],
-                                row['kurtosis'],),)
+                                row['kurtosis'],))
             print("organizer: command 2 executed")
         # close the communication with the PostgreSQL server
         cur.close()
