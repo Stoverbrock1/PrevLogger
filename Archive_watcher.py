@@ -148,7 +148,7 @@ def update_archive(file_list):
      ### pattern needs to be changed
 
     data_list = []
-    for data in file_list[:1]:
+    for data in file_list:
 
         if "roof" in data.lower():
             metadata['hostname'] = hostnames[0]
@@ -157,7 +157,7 @@ def update_archive(file_list):
         else:
             metadata['hostname'] = hostnames[2]
         #Determine center freq.
-        metadata['frequency'] = int(data.split("-")[1].split(".")[0])
+        metadata['frequency'] = int(data.split("-")[1].split(".")[0])*1000000
         df = pd.read_csv(data, usecols=['timestamp',
                                 'average',
                                 'median',
