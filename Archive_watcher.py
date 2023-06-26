@@ -87,7 +87,7 @@ def update_db(data_list):
                                 row['interval'],
                                 row['bit_depth'],
                                 ))
-            metadata_id = cur.fetchone()
+            metadata_id = cur.fetchone()[0]
             print("organizer: command 1 executed")
             print(metadata_id)
             #print(hardware_id)
