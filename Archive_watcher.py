@@ -89,6 +89,8 @@ def update_db(data_list):
                                 ))
             metadata_id = cur.fetchone()
             print("organizer: command 1 executed")
+            print(metadata_id)
+            #print(hardware_id)
             cur.execute(commands[1], (hardware_id,
                                 metadata_id,
                                 row['created_at'],
@@ -154,7 +156,7 @@ def update_archive(file_list):
      ### pattern needs to be changed
 
     data_list = []
-    for data in file_list:
+    for data in file_list[:1]:
 
         if "roof" in data.lower():
             metadata['hostname'] = hostnames[0]
