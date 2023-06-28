@@ -201,7 +201,7 @@ if __name__ == '__main__':
     # start with the rooftop folder, then gate, then west
     # also, I put the data with different metadata into their own folder (only applies to west sensor)
     # make sure to remove or not download that folder (it's called "1s interval data")
-    PATH_TO_WATCH = "./data/ROOFTOP/"
+    PATH_TO_WATCH = "./data/WEST/"
 
     # only needs to be done once
     #prepare_archive(PATH_TO_WATCH)
