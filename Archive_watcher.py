@@ -157,7 +157,10 @@ def update_archive(file_list):
         else:
             metadata['hostname'] = hostnames[2]
         #Determine center freq.
-        metadata['frequency'] = int(data.split("-")[1].split(".")[0])*1000000
+        if ("west" in data.lower()):
+            metadata['frequency'] = int(data.split("_")[1])
+        else:
+            metadata['frequency'] = int(data.split("-")[1].split(".")[0])*1000000
         df = pd.read_csv(data, usecols=['timestamp',
                                 'average',
                                 'median',
